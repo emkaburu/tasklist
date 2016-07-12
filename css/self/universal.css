@@ -1,0 +1,79 @@
+
+@font-face {
+    font-family: 'RalewayRegular';
+    src:url(../../fonts/raleway/Raleway-Regular.ttf) format('truetype');
+}
+@font-face {
+    font-family: 'Roboto-Regular';
+    src:url(../../fonts/Roboto-Regular.ttf) format('truetype');
+}
+
+*{
+    font-family: Roboto-Regular;
+}
+
+
+h1{
+    font-family: RalewayRegular;
+}
+
+a:hover, a:focus {
+    /*color: #23527c;*/
+    text-decoration: none;
+}
+.raleway{
+    font-family: RalewayRegular;
+}
+
+.upper_case{
+	text-transform: uppercase;
+}
+
+.dark-blue {
+	color: #243EA3
+}
+
+.b-inline {
+	display: inline-block;
+}
+
+.danger {
+    color: red
+}
+.center-text{
+    text-align: center
+}
+
+.color-panel{
+    transition: background-color 0.9s ease;
+    /*background-color: #363558;*/
+    background-color: #8FC463;
+    color: #FFF;
+    padding: 5% 0 5% 0; 
+    text-align: center;
+}
+
+.color-panel:hover{
+    background-color: lightgreen;
+    color: #FFF;
+}
+
+.color-panel h4{
+    text-transform: uppercase;
+}
+
+.fixed-table{
+  max-width: 100% !important;
+  /*table-layout: fixed;*/
+
+}
+
+@media only screen and (max-width: 768px){
+    .color-panel{
+        margin-top: 5%;
+        margin-bottom: 5%;
+        margin-right: 10%;
+        margin-left: 10%;
+        margin-right: 10%;
+    }
+}
