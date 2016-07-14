@@ -64,24 +64,17 @@ My Tasks
 	  	</div>
 
 	  <div class="panel-body">
-	  <table class="table table-striped table-responsive fixed-table">        
-        <tbody>
-        <tr>
-        	<th>Name</th>
-        	<th>Description</th>
-        	<th>State</th>
-        	<th>Created On</th>
-        	<th>Last Updated On</th>
-        	<th></th>
-        </tr>
+	  <table class="table table-striped table-responsive fixed-table">
+		  	<tr>
+	        	<th>Name</th>
+	        	<th>Description</th>
+	        	<th>State</th>
+	        	<th>Created On</th>
+	        	<th>Last Updated On</th>
+	        	<th></th>
+	        </tr>		 
 		@foreach($tasks as $task)
-			<col width="">
-  			<col width="20%">
-  			<col width="">
-  			<col width="">
-  			<col width="">
-  			<col width="">
-  			
+			  			
 			<tr>
                 <td class="table-text"><div>{{ $task->name }}</div></td>
                 <td class="table-text"><div>{{ $task->description }}</div></td>
@@ -109,13 +102,13 @@ My Tasks
 				
             </tr>
 		@endforeach
-		</tbody>
+		
 	</table>
-		{{ $tasks->links() }}
 	</div>
+	{{ $tasks->links() }}
 </div>
 <div class="clearfix"></div>
-
+</div>
 <!-- modal form for changing task state via ajax -->
 <script type="text/ng-template" id="changestate.html">		
 	<div class="modal-header">				

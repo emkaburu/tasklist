@@ -58,17 +58,21 @@ a:hover, a:focus {
     color: #FFF;
 }
 
-.color-panel h4{
+.color-panel h4 {
     text-transform: uppercase;
 }
 
-.fixed-table{
+.fixed-table {
   max-width: 100% !important;
-  /*table-layout: fixed;*/
+  table-layout: fixed;
 
 }
 
-@media only screen and (max-width: 768px){
+.fixed-table td {
+word-wrap: break-word;
+}
+
+@media only screen and (max-width: 768px) {
     .color-panel{
         margin-top: 5%;
         margin-bottom: 5%;

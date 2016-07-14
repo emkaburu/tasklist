@@ -10,7 +10,7 @@ Admin - Users
     <div class="col-md-8 col-md-offset-2 pad-panel">
         <div class="panel panel-info">
             <div class="panel-heading">       
-                <h4 class="dark_blue upper_case"> User Manager - User List ({{count($users)}}) </h4>
+                <h4 class="dark_blue upper_case"> User Manager - Active User List ({{count($users)}}) </h4>
                     
             </div>
             <div class="panel-body">        
@@ -46,7 +46,7 @@ Admin - Users
                     </div>
                 
                     <div class="b-inline">                         
-                            <button class="btn btn-danger" ng-click="open('delete',{{$user->id}})"><i class="fa fa-trash"></i> Delete User </button>
+                            <button class="btn btn-danger" ng-click="open('delete_user',{{$user->id}})"><i class="fa fa-trash"></i> Delete User </button>
                     </div>
                 </td>
                 
@@ -58,5 +58,18 @@ Admin - Users
             </div>
         </div>
     </div>  
-
+<!-- modal form for delete confirmation -->
+<script type="text/ng-template" id="delete_user.html">       
+    <div class="modal-header">              
+        <h4 class="modal-title danger">Delete User</h4>
+    </div>
+    <div class="modal-body">
+        <p class="danger"> Are you sure you want to delete this user?</p>
+        
+    </div>
+    <div class="modal-footer">              
+        <button class="btn btn-primary" type="button" ng-click="delete_user()">Yes</button>
+        <button class="btn btn-warning" type="button" ng-click="cancel()">Cancel</button>
+    </div>      
+</script>
 @endsection

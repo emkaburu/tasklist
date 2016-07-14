@@ -32,7 +32,7 @@ class AdminController extends Controller {
      * show users
      */
     public function getUsers(Request $request) {
-    	$users = User::paginate(8);
+    	$users = User::where('activated', 1)->paginate(8);
     	return view('admin.users')->with('users', $users);
     }
 
@@ -91,6 +91,21 @@ class AdminController extends Controller {
     }
 
     /**
+     * Delete User
+     *
+     */
+    public function deleteUser(Request $request, $id){
+         $userID   = $request->input('userID');        
+
+        // $task = Task::findOrFail($taskID);
+        User::destroy($userID);
+
+        $message = "User Deleted Successfully.";
+        return redirect()->back()->with(['success' => $message]);
+    }
+
+
+    /**
      * generate CSV for all tasks for all users
      */
     public function getBigExcel(Request $request){
@@ -116,6 +131,7 @@ class AdminController extends Controller {
         })->download('csv');
     }
 
+    
     /**
      * generate XML for all tasks for all users
      */

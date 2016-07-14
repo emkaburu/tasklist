@@ -57,8 +57,7 @@ use App\User;
 
 	  <div class="panel-body">
 	  <table class="table table-striped table-responsive fixed-table">        
-        <tbody>
-        <tr>
+       
         	<th>Name</th>
         	<th>Description</th>
         	<th>State</th>
@@ -68,12 +67,7 @@ use App\User;
         	<th></th>
         </tr>
 		@foreach($tasks as $task)
-			<col width="">
-  			<col width="">
-  			<col width="">
-  			<col width="">
-  			<col width="">
-  			<col width="">
+			
   			
 			<tr>
                 <td class="table-text"><div>{{ $task->name }}</div></td>
@@ -103,7 +97,7 @@ use App\User;
 				
             </tr>
 		@endforeach
-		</tbody>
+		
 	</table>
 		{{ $tasks->links() }}
 	</div>

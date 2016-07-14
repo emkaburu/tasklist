@@ -159,9 +159,8 @@ class TaskController extends Controller
      */
     public function destroy(Request $request, $id)
     {       
-        $taskID   = $request->input('taskID');        
-
-        // $task = Task::findOrFail($taskID);
+        $taskID   = $request->input('taskID');
+        
         Task::destroy($taskID);
 
         $message = "Task Deleted Successfully.";

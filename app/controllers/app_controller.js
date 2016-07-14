@@ -27,6 +27,24 @@ app.controller('taskListController', function($scope, $http, $uibModal, APIURL){
 			      	}
 			    }); //end modalInstance
                 break;
+            case 'delete_user':
+                userID = taskID;
+                var modalInstance = $uibModal.open({
+                    animation: $scope.animationsEnabled,
+                    templateUrl: 'delete_user.html',
+                    controller: 'ModalDeleteUserController',
+                    size: size,
+
+                    resolve: {                      
+                        userID: function () {
+                            return userID;
+                        },
+                        APIURL: function () {
+                            return APIURL;
+                        }
+                    }
+                }); //end modalInstance
+                break;
             case 'edit':
                 var modalInstance = $uibModal.open({
 			    	animation: $scope.animationsEnabled,
@@ -107,5 +125,31 @@ app.controller('ModalDeleteController', function ($scope, $http, $uibModalInstan
   	$scope.cancel = function () {
     	$uibModalInstance.dismiss('cancel');
   	};
+});
+
+app.controller('ModalDeleteUserController', function ($scope, $http, $uibModalInstance, userID, APIURL) {
+
+    var url = APIURL+'admin/user/delete/'+userID;
+
+    //On Yes, delete task and reload the page on success
+    $scope.delete_user = function () {
+        $http({
+            method: 'POST',
+            url: url,
+            data: {userID:userID},
+            headers: {'Content-Type': 'application/json'}
+        }).then(function(response) {
+            location.reload();
+        },function(response) {
+            console.log(response);
+            alert('This is embarassing. An error has occured. Please contact your web administrator');
+        });
+
+        $uibModalInstance.close();
+    };
+
+    $scope.cancel = function () {
+        $uibModalInstance.dismiss('cancel');
+    };
 });
 
